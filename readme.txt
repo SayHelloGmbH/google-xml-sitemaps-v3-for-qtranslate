@@ -1,10 +1,9 @@
 === Google XML Sitemaps v3 for qTranslate ===
-Contributors: arnee, NeoEGM, DSmidgy
 Donate link: https://sayhello.ch/
 Tags: seo, google, sitemaps, google sitemaps, yahoo, msn, live, xml sitemap, xml, qtranslate
-Requires at least: 2.1
-Tested up to: 3.9
-Stable tag: 3.4.1
+Requires at least: 6.1
+Tested up to: 6.1.1
+Stable tag: 4.0.1
 Update URI: https://github.com/SayHelloGmbH/google-xml-sitemaps-v3-for-qtranslate
 
 This plugin will generate a special XML sitemap which will help search engines to better index your blog. With qTranslate support.

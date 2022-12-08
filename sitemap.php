@@ -87,9 +87,6 @@ class GoogleSitemapGeneratorLoader
 		//Robots.txt request
 		add_action('do_robots', array('GoogleSitemapGeneratorLoader', 'CallDoRobots'), 100, 0);
 
-		//Help topics for context sensitive help
-		add_filter('contextual_help_list', array('GoogleSitemapGeneratorLoader', 'CallHtmlShowHelpList'), 9999, 2);
-
 		//Check if this is a BUILD-NOW request (key will be checked later)
 		if (!empty($_GET["sm_command"]) && !empty($_GET["sm_key"])) {
 			GoogleSitemapGeneratorLoader::CallCheckForManualBuild();
@@ -255,29 +252,6 @@ class GoogleSitemapGeneratorLoader
 			$gs = &GoogleSitemapGenerator::GetInstance();
 			$gs->ShowPingResult();
 		}
-	}
-
-
-	static function CallHtmlShowHelpList($filterVal, $screen)
-	{
-
-		$id = get_plugin_page_hookname(GoogleSitemapGeneratorLoader::GetBaseName(), 'options-general.php');
-
-		if ($screen == $id) {
-			$links = array(
-				__('Plugin Homepage', 'sitemap') => 'http://www.arnebrachhold.de/redir/sitemap-help-home/',
-				__('My Sitemaps FAQ', 'sitemap') => 'http://www.arnebrachhold.de/redir/sitemap-help-faq/'
-			);
-
-			$filterVal[$id] = '';
-
-			$i = 0;
-			foreach ($links as $text => $url) {
-				$filterVal[$id] .= '<a href="' . $url . '">' . $text . '</a>' . ($i < (count($links) - 1) ? '<br />' : '');
-				$i++;
-			}
-		}
-		return $filterVal;
 	}
 
 	static function CallDoRobots()
